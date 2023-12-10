@@ -1,0 +1,188 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9e1;
+  padding-bottom: 4rem;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.5rem;
+}
+.headingTxt {
+  font-weight: 700 !important;
+  font-size: 24px !important;
+}
+
+.txt {
+  text-align: center;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  padding-bottom: 1rem;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  text-align: center;
+  border-top: 1px solid #aaaa;
+}
+.lists {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  width: 100%;
+}
+
+.button {
+  padding: 0 1rem;
+}
+
+.btn {
+  border: 1px solid #fcbd01 !important;
+}
+
+.btn:hover {
+  background-color: #fcbd01 !important;
+}
+
+.img {
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.image {
+  flex-basis: 150px;
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.image:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+}
+
+.tutor-name {
+  color: #aaa !important;
+  margin-top: 14px !important;
+}
+
+.avatar-group {
+  margin-top: 10px;
+}
+
+.banner {
+  padding: 40px 50px;
+}
+
+/* .courses {
+  background: blue;
+  flex-direction: column;
+  width: 1400px;
+} */
+
+.list-wrapper {
+  width: 100%;
+}
+.list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.li {
+  display: list-item;
+  width: 320px;
+  list-style: none;
+}
+
+.list {
+  width: 100%;
+}
+.ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.li {
+  display: list-item;
+  width: 320px;
+  margin: 5px;
+  list-style: none;
+}
+
+.list-wrapper {
+  overflow-x: auto;
+}
+
+.tab:hover{
+ color:#fcbd01 !important; 
+}
+
+.tab:focus{
+ color:#fcbd01 !important; 
+}
+
+
+
+@media (max-width: 1200px) {
+  .ul {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+
+  .li {
+    width: 300px;
+  }
+}
+
+@media (max-width: 960px) {
+  .ul {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .li {
+    width: 250px;
+  }
+}
+
+@media (max-width: 500px) {
+  .list-container {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+  }
+  .ul {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .li {
+    width: 250px;
+  }
+}
+
+

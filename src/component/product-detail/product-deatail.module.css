@@ -1,0 +1,149 @@
+.img {
+  width: 40%;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.imgdetails {
+  width: 500px;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.image {
+  flex-basis: 100px;
+  height: 450px;
+  width: 100%;
+}
+
+.imageDetails {
+  flex-basis: 300px;
+  height: 550px;
+  width: 100%;
+}
+
+.wrapper {
+  padding: 3rem;
+  background-color: #f9f9e1;
+  display: flex;
+  gap: 4rem;
+  margin-top: 4rem;
+}
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-direction: column;
+  padding-top: 3rem;
+  width: 60%;
+}
+
+.title {
+  line-height: 3rem !important;
+  font-size: 1.8rem !important;
+}
+.price {
+  font-size: 1.3rem !important;
+}
+.review {
+  display: flex;
+  gap: 1rem;
+}
+.description {
+  font-size: 1.3rem !important;
+  line-height: 150% !important;
+}
+.quantity-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.quantity {
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
+}
+
+.btn {
+  width: 3rem !important;
+  font-size: 1.2rem !important;
+  border: 1px solid #000 !important;
+}
+
+.btn:hover {
+  color: #fcbd01 !important;
+  border: 1px solid #fcbd01 !important;
+}
+
+.btn-wrap {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.button {
+  width: 11rem !important;
+  height: 3rem !important;
+  background-color: #fcbd01 !important;
+  color: #fff !important;
+}
+
+.button:hover {
+  background-color: #000 !important;
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    flex-wrap: wrap;
+    margin-top: 4rem;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .imgdetails {
+    width: 80%;
+  }
+
+  .imageDetails {
+    flex-basis: 100px;
+    height: 350px;
+    width: 100%;
+    padding: 2rem;
+    /* object-fit: cover; */
+  }
+  .detail {
+    width: 100%;
+    justify-content: center;
+  }
+  .title {
+    text-align: center;
+  }
+}
+
+@media (max-width: 725px) {
+  .wrapper {
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .cart {
+    flex-wrap: wrap;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .description {
+    text-align: center;
+    align-items: flex-start;
+  }
+}
