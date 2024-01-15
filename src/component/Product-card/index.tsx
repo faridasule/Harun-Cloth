@@ -10,7 +10,7 @@ import { AppDispatch } from "@/src/@core/redux/store";
 import { addToCart } from "@/src/@core/redux/feautures/cartSlice";
 
 export const ProductCard = (props: ProductType) => {
-  const { id, title, image, description, category, price } = props;
+  const { id,  image,  category, price } = props;
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -22,8 +22,8 @@ export const ProductCard = (props: ProductType) => {
         price: item.price,
         category: item.category,
         description: item.description,
-          image: item.image,
-        cartQuantity: item.cartQuantity
+        image: item.image,
+        cartQuantity: 1
       })
     );
   };

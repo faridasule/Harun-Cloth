@@ -46,7 +46,7 @@
 }
 .btn {
   width: 180px;
-  background-color: #fcbd01 !important;
+  background-color: var(--primary-color) !important;
   height: 80px;
   padding: 20px;
   border-radius: 10px;
@@ -54,7 +54,7 @@
 }
 
 .btn:hover{
-    background-color: #eaaa32 !important;
+    background-color: var(--primary-color-light) !important;
 
 }
 
@@ -69,9 +69,6 @@
 }
 
 @media (max-width: 760px) {
-  .container {
-    background-color: blue;
-  }
 
   .wrapper {
     flex-wrap: wrap;

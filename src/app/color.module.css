@@ -1,0 +1,28 @@
+
+:root {
+    --text-color: #000033;
+    --link-color: #AAAAAA;
+    --background-color: #FFF;
+    --primary-color:  #fcbd01;
+    --primary-color-dark: #eaaa32;
+    --danger-color: #d32e2d;
+    --button-text-color: #FFF;
+    --body-background-color: #F5F5F5;
+    --footer-background: rgba(85, 85, 85, 0.05);
+    --divider-color: #AAAAAA;
+    --border-color: #EBEBEB;
+    --muted: #AAAAAA;
+    --menu-hover-color: #EEEEEE;
+    --cancel-btn: #e2eef8;
+    --cancel-btn-dark: #d4e9fa;
+    --current-color: #0468bf;
+    --unanswered-color: #ff201f;
+    --not-attempted-color: #001324;
+    --review-color: #d6a802;
+    --divider-color: #aaaaaa;
+    --switch-active: #398b38;
+    --switch-active-dark: #000000;
+    --pri-btn: #f2f2f2;
+}
+
+/* Additional styles or rules go here */

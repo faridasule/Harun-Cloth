@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f9f9e1;
+  background-color: var(--product-background-color);
   padding-bottom: 4rem;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .card {
-  background: #fff;
+  background: var(--background-color);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@
   padding: 1rem;
   align-items: center;
   text-align: center;
-  border-top: 1px solid #aaaa;
+  border-top: 1px solid var(--link-color);
 }
 .lists {
   margin-top: 10px;
@@ -53,11 +53,11 @@
 }
 
 .btn {
-  border: 1px solid #fcbd01 !important;
+  border: 1px solid var(--primary-color) !important;
 }
 
 .btn:hover {
-  background-color: #fcbd01 !important;
+  background-color: var(--primary-color) !important;
 }
 
 .img {
@@ -79,7 +79,7 @@
 }
 
 .tutor-name {
-  color: #aaa !important;
+  color: var(--link-color) !important;
   margin-top: 14px !important;
 }
 
@@ -90,12 +90,6 @@
 .banner {
   padding: 40px 50px;
 }
-
-/* .courses {
-  background: blue;
-  flex-direction: column;
-  width: 1400px;
-} */
 
 .list-wrapper {
   width: 100%;
@@ -134,11 +128,11 @@
 }
 
 .tab:hover{
- color:#fcbd01 !important; 
+ color: var(--primary-color)!important; 
 }
 
 .tab:focus{
- color:#fcbd01 !important; 
+ color:var(--primary-color) !important; 
 }
 
 

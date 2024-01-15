@@ -1,18 +1,18 @@
 .container {
-  background-color: #001324;
+  background-color: var(--footer-background);
   padding: 3rem;
 }
 
 .harun {
   font-size: 28px !important;
   font-weight: 800 !important;
-  color: #fff !important;
+  color: var(--background-color) !important;
 }
 
 .cloth {
   font-size: 28px !important;
   font-weight: 800 !important;
-  color: #fcbd01 !important;
+  color: var(--primary-color) !important;
 }
 
 .ul {
@@ -27,11 +27,14 @@
 
 .li {
   list-style: none;
-  color: #ffffff;
+}
+.link{
+    color: var(--background-color) !important;
+
 }
 .li-social {
   list-style: none;
-  color: #ffffff;
+  color: var(--background-color) !important;
   font-size: 1.5rem;
 }
 
@@ -56,8 +59,8 @@
   text-align: center;
 }
 .btn {
-  background-color: #fcbd01 !important;
-  color: #fff !important;
+  background-color: var(--primary-color) !important;
+  color: var(--background-color) !important;
 }
 .copy-right {
   display: flex;

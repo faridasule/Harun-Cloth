@@ -26,7 +26,7 @@
 
 .wrapper {
   padding: 3rem;
-  background-color: #f9f9e1;
+  background-color: var(--product-background-color);
   display: flex;
   gap: 4rem;
   margin-top: 4rem;
@@ -69,12 +69,12 @@
 .btn {
   width: 3rem !important;
   font-size: 1.2rem !important;
-  border: 1px solid #000 !important;
+  border: 1px solid var(--black-border-color) !important;
 }
 
 .btn:hover {
-  color: #fcbd01 !important;
-  border: 1px solid #fcbd01 !important;
+  color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
 }
 
 .btn-wrap {
@@ -94,12 +94,12 @@
 .button {
   width: 11rem !important;
   height: 3rem !important;
-  background-color: #fcbd01 !important;
-  color: #fff !important;
+  background-color: var(--primary-color) !important;
+  color: var(--background-color) !important;
 }
 
 .button:hover {
-  background-color: #000 !important;
+  background-color: var(--black-border-color) !important;
 }
 
 @media (max-width: 900px) {
@@ -120,7 +120,7 @@
     height: 350px;
     width: 100%;
     padding: 2rem;
-    /* object-fit: cover; */
+  
   }
   .detail {
     width: 100%;
@@ -147,3 +147,4 @@
     align-items: flex-start;
   }
 }
+

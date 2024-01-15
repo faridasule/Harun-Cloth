@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/src/@core/redux/store'
 import { useRouter } from 'next/navigation'
 
-const ProductDetails: React.FC = () => {
+const ProductDetails  = () => {
   const cart = useSelector((state: RootState) => state.product)
   const dispatch = useDispatch()
   const navigate = useRouter()
@@ -30,23 +30,49 @@ const ProductDetails: React.FC = () => {
       console.error('Error fetching product:', err)
     }
   }
-  const [baseQty, setBaseQty] = useState(1)
+  const [baseQty, setBaseQty] = useState<number>(1);
 
   useEffect(() => {
     if (id) {
-      const productId = parseInt(id) // Parse the id to a number
-      fetchProduct(productId)
-      console.log(cart.cartItem[product?.id as number]?.cartQuantity, 'cart')
+      const productId = parseInt(id);
+      fetchProduct(productId);
     }
-  }, [id]) // Include 'id' in the dependency array
+  }, [id]);
 
+  useEffect(() => {
+    // Update baseQty after product data is fetched
+    if (product) {
+      // Assuming product.id is the actual product ID
+      const productId = product.id;
+
+      // Check if the product ID is in the cart
+      const isInCart = cart.cartItem.some(item => item.id === productId);
+
+      if (isInCart) {
+        // If found in the cart, set baseQty to the corresponding cartQuantity
+        const cartItem = cart.cartItem.find(item => item.id === productId);
+        setBaseQty(cartItem?.cartQuantity || 7);
+
+      }
+    }
+  }, [product, cart.cartItem]);
+  // useEffect(() => {
+  //   // Update baseQty after product data is fetched
+  //   if (product) {
+  //     const productId = product.id - 1; // Adjusting for 0-based indexing
+
+  //     setBaseQty(cart.cartItem[productId]?.cartQuantity || 7);
+  //   }
+  // }, [product, cart.cartItem]);
   const handleAddToCart = (product: ProductType) => {
     dispatch(addToCart(product))
   }
   const handleDecreaseCart = (product: ProductType) => {
     dispatch(decreaseCartItem(product))
   }
-  console.log(cart.cartItem[product?.id as number]?.cartQuantity, 'cart')
+  
+
+
   return (
     <>
       {product && (
@@ -84,19 +110,18 @@ const ProductDetails: React.FC = () => {
                 </Text>
 
                 <div className={style['btn-wrap']}>
-                  <Button
+                   <Button
                     className={style.btn}
-                    onClick={() =>
-                      setBaseQty(baseQty === 1 ? baseQty + 1 : baseQty - 1)
-                    }
+                    onClick={() => setBaseQty(1 + 0)}
                   >
                     -
                   </Button>
+
                   <Text>{baseQty}</Text>
 
                   <Button
                     className={style.btn}
-                    onClick={() => setBaseQty(baseQty + 1)}
+                    onClick={() => handleAddToCart(product)}
                   >
                     +
                   </Button>
@@ -105,17 +130,6 @@ const ProductDetails: React.FC = () => {
               {/* add to cart */}
               <Button
                 onClick={() => {
-                  dispatch(
-                    addToCart({
-                      id: product.id,
-                      title: product.title,
-                      price: product.price,
-                      category: product.category,
-                      description: product.description,
-                      image: product.image,
-                      cartQuantity: baseQty,
-                    }),
-                  )
                   navigate.push(`/cart`)
                 }}
                 className={style['button']}

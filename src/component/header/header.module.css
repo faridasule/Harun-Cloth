@@ -1,12 +1,11 @@
-@import '../../../src/app/color.css';
 
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 2rem;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
-  background-color: #ffffff;
+  box-shadow: var(--box-shadow) !important;
+  background-color: var(--background-color);
   position: fixed;
   top: 0;
   left: 0;
@@ -18,10 +17,14 @@
   align-items: center;
   gap: 30px;
 }
-
-.link {
+.li{
   list-style: none;
-  font-weight: 500;
+}
+.link {
+  color: var(--text-color) !important;
+  font-weight: 500 !important;
+  text-decoration: none;
+  font-size: 16px !important;
 }
 
 .utils {
@@ -51,18 +54,17 @@
 .cloth {
   font-size: 28px !important;
   font-weight: 800 !important;
-  color: #fcbd01 !important;
+  color: var(--primary-color) !important;
 }
 
 .btn-login {
-  background-color: #eaaa32 !important;
   height: 45px !important;
   width: 100px;
   border-radius: 5px !important;
   font-size: 16px !important;
 }
 .btn-signup {
-  background-color: #fcbd01 !important;
+  background-color: var(--primary-color) !important;
   height: 45px !important;
   width: 100px;
   border-radius: 5px !important;
@@ -107,7 +109,6 @@
     padding-top: 40px;
     overflow: hidden;
   }
-
 }
 
 @media (max-width: 760px) {
@@ -140,7 +141,7 @@
   }
   .login {
     padding-left: 1.5rem;
-    color: #fcbd01 !important;
+    color: var(--primary-color) !important;
     font-size: 1.5rem !important;
   }
 
@@ -149,12 +150,12 @@
     padding: 0.8rem 1rem !important;
     margin-left: 1rem;
     width: 100px !important;
-    background-color: #fcbd01 !important;
+    background-color: var(--primary-color) !important;
     padding-left: 1.5rem;
   }
 
   .login-text{
-    color: #fcbd01 !important;
+    color: var(--primary-color) !important;
     font-size: 1rem !important;
     font-weight: 500 !important;
   }
@@ -163,6 +164,5 @@
     font-size: 1rem !important;
     font-weight: 500 !important;
   }
-
- 
 }
+
