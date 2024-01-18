@@ -34,3 +34,4 @@ const apiClient = () => {
 }
 
 export const { get, post } = apiClient()
+

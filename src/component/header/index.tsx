@@ -19,6 +19,7 @@ import { RootState } from '@/src/@core/redux/store'
 import { getTotals } from '@/src/@core/redux/feautures/cartSlice'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { logout } from '@/src/@core/redux/feautures/authSlice'
+import { useRouter } from 'next/navigation'
 
 const Header = () => {
   const { user } = useSelector((state: RootState) => state.auth)
@@ -44,6 +45,13 @@ const Header = () => {
       window.removeEventListener('resize', handleResize)
     }
   }, [])
+
+    const navigate = useRouter();
+
+  const handleDetails = () => {
+    navigate.push(`/cart`)
+  };
+
 
   return (
     <Pane className={style['container']}>
@@ -83,7 +91,7 @@ const Header = () => {
       <Pane className={style['utils']}>
         <Pane className={style['search']}>
           <CiSearch size={30} color="grey" />
-          <Link href='/cart' >
+          <Link  onClick={handleDetails}>
           <Heading className={style['hd']}>
             
               <LiaShoppingBagSolid size={25} />:{cartTotalQuantity}

@@ -1,5 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AxiosError } from "axios";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CreateUser } from "../../types";
 
 
@@ -66,8 +65,9 @@ export const authSlice = createSlice({
 export const {
   started,
   register,
-    failed,
-    login,
+  failed,
+  login,
   logout
 } = authSlice.actions
 export default authSlice.reducer
+

@@ -52,10 +52,9 @@ const Signup = () => {
           setResponseIntent("success");
            navigate.push(`/`)
 
-          // Dispatch the registration action
           console.log(values, 'val')
       } catch (error) {
-          dispatch(failed('Failed')); // Dispatch the "failed" action
+          dispatch(failed('Failed')); 
            setResponseMessage("Registration failed")
           setResponseIntent("danger");
       }

@@ -39,3 +39,4 @@ export const getProduct = async (id: number) => {
     throw error
   }
 }
+

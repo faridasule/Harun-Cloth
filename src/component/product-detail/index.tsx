@@ -7,7 +7,6 @@ import { useParams } from 'next/navigation'
 import { MdOutlineStar } from 'react-icons/md'
 import {
   addToCart,
-  decreaseCartItem,
 } from '@/src/@core/redux/feautures/cartSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/src/@core/redux/store'
@@ -18,14 +17,14 @@ const ProductDetails  = () => {
   const dispatch = useDispatch()
   const navigate = useRouter()
 
-  const { id } = useParams<{ id: string }>() // Get the 'id' parameter from the URL
+  const { id } = useParams<{ id: string }>() 
 
   const [product, setProduct] = useState<ProductType | null>(null)
 
   const fetchProduct = async (productId: number) => {
     try {
       const result = await getProduct(productId)
-      setProduct(result.data) // Assuming result contains product data including the 'image' property
+      setProduct(result.data)
     } catch (err) {
       console.error('Error fetching product:', err)
     }
@@ -40,37 +39,22 @@ const ProductDetails  = () => {
   }, [id]);
 
   useEffect(() => {
-    // Update baseQty after product data is fetched
     if (product) {
-      // Assuming product.id is the actual product ID
       const productId = product.id;
 
-      // Check if the product ID is in the cart
       const isInCart = cart.cartItem.some(item => item.id === productId);
 
       if (isInCart) {
-        // If found in the cart, set baseQty to the corresponding cartQuantity
         const cartItem = cart.cartItem.find(item => item.id === productId);
         setBaseQty(cartItem?.cartQuantity || 7);
 
       }
     }
   }, [product, cart.cartItem]);
-  // useEffect(() => {
-  //   // Update baseQty after product data is fetched
-  //   if (product) {
-  //     const productId = product.id - 1; // Adjusting for 0-based indexing
 
-  //     setBaseQty(cart.cartItem[productId]?.cartQuantity || 7);
-  //   }
-  // }, [product, cart.cartItem]);
   const handleAddToCart = (product: ProductType) => {
     dispatch(addToCart(product))
   }
-  const handleDecreaseCart = (product: ProductType) => {
-    dispatch(decreaseCartItem(product))
-  }
-  
 
 
   return (
