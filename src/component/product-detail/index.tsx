@@ -1,3 +1,5 @@
+'use client'
+
 import { getProduct } from '@/src/@core/service/product'
 import { Button, Heading, Pane, Spinner, Text } from 'evergreen-ui'
 import React, { useEffect, useState } from 'react'

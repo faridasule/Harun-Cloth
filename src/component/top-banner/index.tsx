@@ -1,4 +1,5 @@
 'use client'
+
 import { Button, Pane, Heading, Text, Link } from 'evergreen-ui'
 import style from './top-banner.module.css'
 import image from '../../../public/landing.jpeg'
