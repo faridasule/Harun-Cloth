@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { CreateUser } from '@/src/@core/types'
-import { login, register } from '@/src/@core/redux/feautures/authSlice'
+import { login} from '@/src/@core/redux/feautures/authSlice'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/navigation'
 
@@ -107,7 +107,7 @@ const Login = () => {
         <Pane>
           <Text className={style['oralt']}>
             Don&apos;t have an account?
-            <Link href="authentication/signup" className={style['auth-link']}>
+            <Link href="/authentication/signup" className={style['auth-link']}>
               Sign up
             </Link>
           </Text>

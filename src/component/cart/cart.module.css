@@ -198,6 +198,10 @@
   padding: 6rem 0;
 }
 
+.login{
+    color: var(--primary-color) !important;
+}
+
 /* Responsive */
 
 @media (max-width: 665px) {

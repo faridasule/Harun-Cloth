@@ -111,7 +111,7 @@ const Signup = () => {
         <Pane>
           <Text className={style['oralt']}>
             Are you a member?
-            <Link href="" className={style['auth-link']}>
+            <Link href="/authentication/login" className={style['auth-link']}>
               Login
             </Link>
           </Text>

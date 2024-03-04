@@ -1,5 +1,5 @@
 import { getProduct } from '@/src/@core/service/product'
-import { Button, Heading, Pane, Text } from 'evergreen-ui'
+import { Button, Heading, Pane, Spinner, Text } from 'evergreen-ui'
 import React, { useEffect, useState } from 'react'
 import style from './product-deatail.module.css'
 import { ProductType } from '@/src/@core/types'
@@ -14,6 +14,8 @@ import { useRouter } from 'next/navigation'
 
 const ProductDetails  = () => {
   const cart = useSelector((state: RootState) => state.product)
+  const [loading, setLoading] = useState(true)
+
   const dispatch = useDispatch()
   const navigate = useRouter()
 
@@ -23,6 +25,7 @@ const ProductDetails  = () => {
 
   const fetchProduct = async (productId: number) => {
     try {
+      setLoading(false)
       const result = await getProduct(productId)
       setProduct(result.data)
     } catch (err) {
@@ -59,7 +62,14 @@ const ProductDetails  = () => {
 
   return (
     <>
-      {product && (
+      
+        {loading && (
+              <Pane display="flex" gap="1.5rem" flexDirection="column" alignItems="center" justifyContent="center" height={400}>
+          <Spinner />
+          <Text>Something went wrong</Text>
+              </Pane>
+            )}
+      {!loading && product && (
         <Pane className={style.wrapper}>
           <div className={style.imgdetails}>
             <img

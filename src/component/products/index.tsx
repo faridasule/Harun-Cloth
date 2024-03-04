@@ -1,6 +1,6 @@
 'use client'
 
-import { Heading, Pane, Tab, Tablist, Text } from 'evergreen-ui'
+import { Heading, Pane, Spinner, Tab, Tablist, Text } from 'evergreen-ui'
 import React, { useEffect, useState } from 'react'
 import style from './product.module.css'
 import {
@@ -92,11 +92,10 @@ const AllProduct = () => {
                   if (tab !== 'All') {
                     fetchProductByCategory(tab)
                   } else {
-                    fetchPatientSets() // Call this function when 'All' tab is selected
+                    fetchPatientSets()
                   }
                 }}
                 key={tab}
-               
                 color="#AAAAAA"
                 size={400}
                 style={{ cursor: 'pointer' }}
@@ -108,35 +107,46 @@ const AllProduct = () => {
             ))}
           </Tablist>
           <Pane className={style['list-wrapper']} data-testid={'courses-tab'}>
-            {tabs.map((tab, index) => (
+            {loading && (
               <Pane
-                className={style['list-container']}
-                aria-labelledby={tab}
-                aria-hidden={index !== selectedIndex}
-                display={index === selectedIndex ? 'block' : 'none'}
-                key={tab}
-                role="tabpanel"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                height={400}
               >
-                <ul key={`${tab}_${index}`} className={style['ul']}>
-                  {tab === 'All'
-                    ? patientSets.map((patientSet: ProductType) => (
-                        <li className={style['li']} key={patientSet.id}>
-                          <ProductCard {...patientSet} />
-                        </li>
-                      ))
-                    : patientSets
-                        .filter(
-                          (patientSet: ProductType) =>
-                            patientSet.category == tab,
-                        )
-                        .map((patientSet: ProductType) => (
+                <Spinner />
+              </Pane>
+            )}
+            {!loading &&
+              tabs.map((tab, index) => (
+                <Pane
+                  className={style['list-container']}
+                  aria-labelledby={tab}
+                  aria-hidden={index !== selectedIndex}
+                  display={index === selectedIndex ? 'block' : 'none'}
+                  key={tab}
+                  role="tabpanel"
+                >
+                  <ul key={`${tab}_${index}`} className={style['ul']}>
+                    {tab === 'All'
+                      ? patientSets.map((patientSet: ProductType) => (
                           <li className={style['li']} key={patientSet.id}>
                             <ProductCard {...patientSet} />
                           </li>
-                        ))}
-                </ul>
-              </Pane>
-            ))}
+                        ))
+                      : patientSets
+                          .filter(
+                            (patientSet: ProductType) =>
+                              patientSet.category == tab,
+                          )
+                          .map((patientSet: ProductType) => (
+                            <li className={style['li']} key={patientSet.id}>
+                              <ProductCard {...patientSet} />
+                            </li>
+                          ))}
+                  </ul>
+                </Pane>
+              ))}
           </Pane>
         </Pane>
       </Pane>

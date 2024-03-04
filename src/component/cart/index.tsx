@@ -18,7 +18,7 @@ import FlutterPay from './flutter'
 
 const Cart = () => {
   const cart = useSelector((state: RootState) => state.product)
-    const { user } = useSelector((state: RootState) => state.auth);
+  const { user } = useSelector((state: RootState) => state.auth)
 
   const dispatch = useDispatch()
 
@@ -117,7 +117,9 @@ const Cart = () => {
                 <div>
                   <div className={style['subtotal']}>
                     <Heading>Subtotal</Heading>
-                    <span className={style['amount']}>${cart.cartTotalAmount}</span>
+                    <span className={style['amount']}>
+                      ${cart.cartTotalAmount}
+                    </span>
                   </div>
                   <Text className={style['p']}>
                     Taxes and shipping calculated at checkout
@@ -128,7 +130,11 @@ const Cart = () => {
                 </div>
               ) : (
                 <Text>
-                  Please log in before checkout.
+                  Please{' '}
+                  <Link className={style['login']} href="/authentication/login">
+                    Login
+                  </Link>{' '}
+                  before checkout.
                 </Text>
               )}
 
@@ -140,11 +146,10 @@ const Cart = () => {
               </div>
             </Pane>
           </Pane>
-
         </div>
       )}
-          </Pane>
-  );
-};
+    </Pane>
+  )
+}
 
 export default Cart

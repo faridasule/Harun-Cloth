@@ -32,10 +32,7 @@
   gap: 4rem;
   align-items: center;
 }
-.search {
-  display: flex;
-  gap: 1rem;
-}
+
 
 .button {
   display: flex;
@@ -81,9 +78,7 @@
   display: none;
 }
 @media (max-width: 1024px) {
-  .list {
-    display: none;
-  }
+ 
    .single-menu {
     display: block;
   }
@@ -112,9 +107,7 @@
 }
 
 @media (max-width: 760px) {
-  .list {
-    display: none;
-  }
+
 
   .harun {
     font-size: 20px !important;
@@ -123,9 +116,7 @@
     font-size: 20px !important;
   }
 
-  .button {
-    display: none;
-  }
+
   .single-menu {
     display: block;
   }
@@ -139,20 +130,7 @@
     flex-direction: column;
     gap: 1rem;
   }
-  .login {
-    padding-left: 1.5rem;
-    color: var(--primary-color) !important;
-    font-size: 1.5rem !important;
-  }
 
-  .signup {
-    display: inline;
-    padding: 0.8rem 1rem !important;
-    margin-left: 1rem;
-    width: 100px !important;
-    background-color: var(--primary-color) !important;
-    padding-left: 1.5rem;
-  }
 
   .login-text{
     color: var(--primary-color) !important;
@@ -164,5 +142,50 @@
     font-size: 1rem !important;
     font-weight: 500 !important;
   }
+
+  .btn-login {
+  height: 45px !important;
+  width: 80px;
+  border-radius: 5px !important;
+  font-size: 14px !important;
+}
+.btn-signup {
+  background-color: none !important;
+  height: 45px !important;
+  width: 80px;
+    border-radius: none !important;
+
+  font-size: 14px !important;
+}
+
+.utils {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+}
+
+
+@media (max-width: 390px) {
+
+  .harun {
+    font-size: 16px !important;
+  }
+  .cloth {
+    font-size: 14px !important;
+  }
+
+    .btn-login {
+  height: 0 !important;
+  width: 0 !important;
+
+}
+.btn-signup {
+  background-color: none !important;
+  color: var(--primary-color) !important;
+  height: 0 !important;
+  width: 0 !important;
+ 
+}
 }
 

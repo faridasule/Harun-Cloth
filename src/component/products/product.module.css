@@ -137,6 +137,17 @@
 
 
 
+
+.tab[aria-current="page"], .tab[aria-selected="true"] {
+  color: var(--primary-color) !important;
+}
+
+
+.tab:before {
+    background-color:  var(--primary-color) !important;
+}
+
+
 @media (max-width: 1200px) {
   .ul {
     display: grid !important;
