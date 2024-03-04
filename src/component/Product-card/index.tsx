@@ -53,12 +53,14 @@ export const ProductCard = (props: ProductType) => {
         </Heading>
         <Heading>${price}</Heading>
       </Pane>
+      
       <Pane className={style.button}>
-        <Button className={style.btn} onClick={() => dispatchActions(props)}>
+        <Button className={style.btn} onClick={() => dispatchActions()}>
           Add to cart
         </Button>
       </Pane>
     </Pane>
   );
 };
+
 
