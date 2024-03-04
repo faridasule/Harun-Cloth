@@ -12,6 +12,11 @@
     --divider-color: #AAAAAA;
     --border-color: #EBEBEB;
     --muted: #AAAAAA;
+      --review-color: #d6a802;
+    --divider-color: #aaaaaa;
+    --switch-active: #398b38;
+    --switch-active-dark: #000000;
+    --pri-btn: #f2f2f2;
     --menu-hover-color: #EEEEEE;
     --cancel-btn: #e2eef8;
     --cancel-btn-dark: #d4e9fa;
