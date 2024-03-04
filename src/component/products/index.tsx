@@ -9,7 +9,7 @@ import {
   getProductByCategory,
 } from '@/src/@core/service/product'
 import { ProductType } from '@/src/@core/types'
-import { ProductCard } from '../product-card/index'
+import ProductCard  from '../product-card/index'
 
 const AllProduct = () => {
   const [patientSets, setPatientSets] = useState([])
