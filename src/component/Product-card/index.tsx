@@ -1,4 +1,4 @@
-// 'use client'
+ 'use client'
 
 import React from "react";
 import { Button, Heading, Pane } from "evergreen-ui";
@@ -9,8 +9,8 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/src/@core/redux/store";
 import { addToCart } from "@/src/@core/redux/feautures/cartSlice";
 
-export const ProductCard = (props: ProductType) => {
-  const { id,  image,  category, price, title, description } = props;
+const ProductCard = (props: ProductType) => {
+  const { id,  image,  category, price} = props;
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -53,7 +53,7 @@ export const ProductCard = (props: ProductType) => {
         </Heading>
         <Heading>${price}</Heading>
       </Pane>
-      
+
       <Pane className={style.button}>
         <Button className={style.btn} onClick={() => dispatchActions()}>
           Add to cart
@@ -64,3 +64,4 @@ export const ProductCard = (props: ProductType) => {
 };
 
 
+export default ProductCard
