@@ -1,7 +1,7 @@
 'use client'
 
 import { Alert, Button, Heading, Pane, Text, TextInputField } from 'evergreen-ui'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from '../signup/signup.module.css'
 import Link from 'next/link'
 import { useFormik } from 'formik'
@@ -31,7 +31,17 @@ const Login = () => {
   })
 
   const dispatch = useDispatch();
-    const navigate = useRouter();
+  const navigate = useRouter();
+  
+  const [user, setUser] = useState<CreateUser | null>(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
 
 
    const formik = useFormik<CreateUser>({
@@ -40,33 +50,26 @@ const Login = () => {
       password: '',
     },
     validationSchema: loginSchema,
-    validateOnBlur: true,
-    onSubmit: (values) => {
-      const storedUser = localStorage.getItem('user');
-      if (storedUser) {
-         const parsedUser: CreateUser = JSON.parse(storedUser);
-
-        if (
-          parsedUser.emailAddress === values.emailAddress &&
-          parsedUser.password === values.password
-        ) {
-        
-          dispatch(login(parsedUser));
-          setResponseMessage("Login successful")
-          setResponseIntent("success");
-           navigate.push(`/`)
-          console.log('Login successful');
-        } else {
-          console.log('Invalid username or password');
-          setResponseMessage("Invalid username or password")
-           setResponseIntent("danger");
-
-        }
+     validateOnBlur: true,
+    
+  onSubmit: (values: CreateUser) => {
+    if (user) {
+      if (user.emailAddress === values.emailAddress && user.password === values.password) {
+        dispatch(login(user));
+        setResponseMessage("Login successful");
+        setResponseIntent("success");
+        navigate.push(`/`);
+        console.log('Login successful');
       } else {
-        setResponseMessage('User does not exist');
-        
+        console.log('Invalid username or password');
+        setResponseMessage("Invalid username or password");
+        setResponseIntent("danger");
       }
-    },
+    } else {
+      setResponseMessage('User does not exist');
+    }
+  }
+ 
   });
   return (
     <div className={style['container']}>

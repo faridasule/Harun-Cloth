@@ -8,9 +8,6 @@ import Footer from '../component/footer'
 import { ReduxProvider } from '../@core/redux/provider'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import login from '../component/authentication/login'
-import { JSX } from 'react'
-import { useDispatch } from 'react-redux'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -51,7 +48,5 @@ export default function RootLayout({
   )
 }
 
-function dispatch(arg0: JSX.Element) {
-  throw new Error('Function not implemented.')
-}
+
 

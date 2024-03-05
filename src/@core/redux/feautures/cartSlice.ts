@@ -19,10 +19,9 @@ export interface ProductState {
   cartTotalQuantity: number
 }
 
-const localStorageCartItems = localStorage.getItem('cartItem')
-const initialCartItems: ProductType[] = localStorageCartItems
-  ? JSON.parse(localStorageCartItems)
-  : []
+const localStorageCartItems = typeof window !== 'undefined' ? localStorage.getItem('cartItem') : null;
+const initialCartItems: ProductType[] = localStorageCartItems ? JSON.parse(localStorageCartItems) : [];
+
 
 const initialState: ProductState = {
   cartItem: initialCartItems,
@@ -54,7 +53,10 @@ export const cartSlice = createSlice({
           position: 'bottom-left',
         })
       }
-      localStorage.setItem('cartItem', JSON.stringify(state.cartItem))
+          if (typeof window !== 'undefined') {
+                  localStorage.setItem('cartItem', JSON.stringify(state.cartItem))
+
+      }
     },
 
     removeCartItem: (state, action: PayloadAction<ProductType>) => {
@@ -62,7 +64,10 @@ export const cartSlice = createSlice({
         (item) => item.id !== action.payload.id,
       )
       state.cartItem = newCartItem
-      localStorage.setItem('cartItem', JSON.stringify(state.cartItem))
+          if (typeof window !== 'undefined') {
+            localStorage.setItem('cartItem', JSON.stringify(state.cartItem))
+
+      }
       toast.error('remove product fom cart', {
         position: 'bottom-left',
       })
@@ -88,7 +93,10 @@ export const cartSlice = createSlice({
           position: 'bottom-left',
         })
       }
-      localStorage.setItem('cartItem', JSON.stringify(state.cartItem))
+          if (typeof window !== 'undefined') {
+                  localStorage.setItem('cartItem', JSON.stringify(state.cartItem))
+
+      }
     },
 
     clearCart: (state) => {
@@ -96,7 +104,10 @@ export const cartSlice = createSlice({
       toast.error('Cart cleared', {
         position: 'bottom-left',
       })
-      localStorage.setItem('cartItem', JSON.stringify(state.cartItem))
+          if (typeof window !== 'undefined') {
+                  localStorage.setItem('cartItem', JSON.stringify(state.cartItem))
+
+      }
     },
 
     getTotals(state) {

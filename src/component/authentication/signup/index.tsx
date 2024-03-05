@@ -8,7 +8,7 @@ import { CreateUser } from '@/src/@core/types'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import { useDispatch } from 'react-redux'
-import { failed, register, started } from '@/src/@core/redux/feautures/authSlice'
+import { failed, register} from '@/src/@core/redux/feautures/authSlice'
 import { useRouter } from 'next/navigation'
 
 const Signup = () => {

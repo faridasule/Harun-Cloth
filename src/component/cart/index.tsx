@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import style from './cart.module.css'
 import {
@@ -12,18 +12,21 @@ import {
 } from '@/src/@core/redux/feautures/cartSlice'
 import { RootState } from '@/src/@core/redux/store'
 import { ProductType } from '@/src/@core/types'
-import { Heading, Pane, Text, Button, Link } from 'evergreen-ui'
+import { Heading, Pane, Text, Button, Link, Spinner } from 'evergreen-ui'
 import { IoArrowBack } from 'react-icons/io5'
 import FlutterPay from './flutter'
 
 const Cart = () => {
   const cart = useSelector((state: RootState) => state.product)
   const { user } = useSelector((state: RootState) => state.auth)
+  const [loading, setLoading] = useState(true)
+
 
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getTotals())
+    setLoading(false)
   }, [cart, dispatch])
 
   const handleAddToCart = (product: ProductType) => {
@@ -39,6 +42,15 @@ const Cart = () => {
     dispatch(clearCart())
   }
   return (
+  <>
+      {loading && (
+              <Pane display="flex" gap="1.5rem" flexDirection="column" alignItems="center" justifyContent="center" height={400}>
+          <Spinner />
+          <Text>Something went wrong</Text>
+              </Pane>
+      )}
+            {!loading && cart && (
+
     <Pane className={style['cart-container']}>
       <Heading className={style['h2']}>Shopping Cart</Heading>
       {cart.cartItem.length === 0 ? (
@@ -148,7 +160,10 @@ const Cart = () => {
           </Pane>
         </div>
       )}
-    </Pane>
+        </Pane>
+              )}
+
+      </>
   )
 }
 
