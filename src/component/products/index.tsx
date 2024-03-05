@@ -100,6 +100,7 @@ const AllProduct = () => {
                 size={400}
                 style={{ cursor: 'pointer' }}
                 white-space="nowrap"
+                marginLeft="2rem"
                 className={style['tab']}
               >
                 {tab}
